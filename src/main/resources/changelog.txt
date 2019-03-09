@@ -1,0 +1,44 @@
+v1.1.0 (Requires BossShopPro v1.9.9 or higher)
+*[NOTE] The "%id%" placeholder, used in the old default config (ShopItemLookAdvanced.SubShop.Displayname), is no longer supported.
+If you did not already change that config property, I recommend changing "&8ItemShop &8&l[right] &8%id%" into "&8%type%"
+*[UPDATE] Added Spigot 1.13.* support
+*[UPDATE] Updated example shop with new material values
+*[ADD] Now it is possible to configure BuyAll and SellAll buttons separately from Buy and Sell buttons
+
+
+v1.0.8
+*[IMPROVE] Replaced material ids in the default configuration files with material names (See https://www.spigotmc.org/threads/minecraft-1-13-what-to-expect.288714/ for more information)
+
+
+v1.0.7 (Requires BossShopPro v1.8.3 or higher)
+*[UPDATE] Updated to BossShopPro v1.8.3
+
+
+v1.0.6 (Requires BossShopPro v1.7.3 or higher)
+*[ADD] Added optional way to set up fix item sell- and buyprices instead of working with a multiplier
+*[ADD] Added buy-all button which fills the inventory of the player with the clicked item
+
+
+v1.0.5
+*[FIX] Shops were not found when their related item paths included upper case letters
+
+
+v1.0.4
+*[FIX] When not having any other shops that use money (except ItemShops) BossShopPro did not load the money management system, causing ItemShops to break
+
+
+v1.0.3 (Needs BossShopPro v1.2.9 or higher)
+*[ADD] Added option to disable buying (either completely or just for specific items)
+*[UPDATE] Updated default config in order to fit the new BossShopPro ItemAll style
+
+
+v1.0.2 (Needs BossShopPro v1.1.9 or higher)
+*[UPDATE] Updated to BossShopPro v1.1.9
+
+
+v1.0.1
+*[ADD] You can now optionally enable/disable selling for specific items only, different from the main property
+
+
+v1.0.0
+* First release

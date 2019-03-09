@@ -1,0 +1,7 @@
+name: ItemShops
+version: ${project.version}
+description: BossShopPro Addon - Create fancy shops with minimal effort
+author: Black_ixx
+website: http://felix.neuby.de
+main: org.black_ixx.bossshop.addon.itemshops.ItemShops
+depend: [BossShopPro]
