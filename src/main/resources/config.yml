@@ -60,6 +60,18 @@ AllowSellAll: true
 AllowBuyAll: true
 #
 #
+# AllowSellAll:
+# If enabled players can sell all their items of that type with just one click.
+# This is a general setting that can be overridden by items of your choice by simply adding the line "AllowSellAll: <true/false>" to that item.
+AllowSellAll: true
+#
+#
+# AllowBuyAll:
+# If enabled players can fill their inventory with items of that type with just one click
+# This is a general setting that can be overridden by items of your choice by simply adding the line "AllowBuyAll: <true/false>" to that item.
+AllowBuyAll: true
+#
+#
 # ShopItemLookSimple:
 # Here you can define the look of all shopitems when having the simple mode activated.
 ShopItemLookSimple:
