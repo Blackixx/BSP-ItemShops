@@ -52,12 +52,12 @@ public class ItemInfo {
         List<String> new_list = new ArrayList<String>();
         if (itemdata != null) {
             for (String entry : itemdata) {
-                new_list.add(transformEntry(entry, itemstack, amount));
+                new_list.add(transformEntry(entry, itemstack, amount, price));
             }
         }
         if (menuitem != null) {
             for (String entry : menuitem) {
-                new_list.add(transformEntry(entry, itemstack, amount));
+                new_list.add(transformEntry(entry, itemstack, amount, price));
             }
         }
         return ClassManager.manager.getItemStackCreator().createItemStack(new_list, false);
