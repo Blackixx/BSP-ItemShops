@@ -40,7 +40,9 @@ public class ItemShopsCreatorAdvanced {
 		String shop_name = "itemshop_advanced_"+item.getPath().toLowerCase();
 		BSBuy buy = new BSBuy(BSRewardType.Shop, BSPriceType.Nothing, shop_name, null, preview.getMessage(), -1, null, item.getPath());
 
-		buy.setItem(preview.getMenuItem(item.getItemData(), item.getItemStack(), 1), false);
+		//buy.setItem(preview.getMenuItem(item.getItemData(), item.getItemStack(), 1), false);
+		Number price = item.getWorth(true, price_multiplier, 1, rewardtype, true, worth_is_for_one_unit);
+		buy.setItem(preview.getMenuItem(item.getItemData(), item.getItemStack(), 1, price), false);
 
 		shophandler.addShop(createSubShop(shophandler, shop, buy, item, shop_name, plugin, rewardtype, pricetype, reward_multiplier, price_multiplier, worth_is_for_one_unit));
 		return buy;
@@ -83,7 +85,7 @@ public class ItemShopsCreatorAdvanced {
 				int amount = levels[level];
 				int first_slot = level*9 + 3;
 
-				addBuyItemPreview(individual_shop, item, first_slot+1, amount);
+				addBuyItemPreview(individual_shop, rewardtype, item, price_multiplier, first_slot+1, amount, worth_is_for_one_unit);
 
 				if(item.allowBuy()){
 					addBuyItemBuy(individual_shop, pricetype, rewardtype, item, price_multiplier, first_slot, amount, worth_is_for_one_unit);
@@ -154,10 +156,12 @@ public class ItemShopsCreatorAdvanced {
 		return shopitem;
 	}
 
-	private BSBuy addBuyItemPreview(BSShop individual_shop, ISItem item, int slot, int amount){
+	private BSBuy addBuyItemPreview(BSShop individual_shop, BSRewardType rewardtype, ISItem item, double price_multiplier, int slot, int amount, boolean worth_is_for_one_unit){
+		//private BSBuy addBuyItemPreview(BSShop individual_shop, ISItem item, int slot, int amount){
 		BSBuy shopitem = new BSBuy(BSRewardType.Nothing, BSPriceType.Nothing, null, null, preview.getMessage(), slot, null, item.getPath()+"-preview-"+amount);
 		shopitem.setShop(individual_shop);
-		individual_shop.addShopItem(shopitem, preview.getMenuItem(item.getItemData(), item.getItemStack(), amount), ClassManager.manager);
+		Number price = item.getWorth(true, price_multiplier, 1, rewardtype, true, worth_is_for_one_unit);
+		individual_shop.addShopItem(shopitem, preview.getMenuItem(item.getItemData(), item.getItemStack(), amount, price), ClassManager.manager);
 		return shopitem;
 	}
 
