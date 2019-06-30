@@ -38,7 +38,7 @@ public class ItemShopsCreatorAdvanced {
 
 	public BSBuy createBuyItem(BSShops shophandler, BSShop shop, ISItem item, BossShop plugin, BSRewardType rewardtype, BSPriceType pricetype, double reward_multiplier, double price_multiplier, boolean worth_is_for_one_unit){
 		String shop_name = "itemshop_advanced_"+item.getPath().toLowerCase();
-		BSBuy buy = new BSBuy(BSRewardType.Shop, BSPriceType.Nothing, shop_name, null, preview.getMessage(), -1, null, item.getPath());
+		BSBuy buy = new BSBuy(BSRewardType.Shop, BSPriceType.Nothing, shop_name, null, preview.getMessage(), -1, item.getPermission(), item.getPath());
 
 		//buy.setItem(preview.getMenuItem(item.getItemData(), item.getItemStack(), 1), false);
 		Number price = item.getWorth(true, price_multiplier, 1, rewardtype, true, worth_is_for_one_unit);
