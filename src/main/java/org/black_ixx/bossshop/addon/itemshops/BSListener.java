@@ -52,6 +52,7 @@ public class BSListener implements Listener {
             double worth = section.getDouble("Worth");
             double fix_buy = section.getDouble("PriceBuy", -1);
             double fix_sell = section.getDouble("RewardSell", -1);
+            String permission = "";
             List<String> itemdata = section.getStringList("Item");
 
             if (section.contains("AllowSell")) {
@@ -66,8 +67,11 @@ public class BSListener implements Listener {
             if (section.contains("AllowBuyAll")) {
                 allow_buyall = section.getBoolean("AllowBuyAll");
             }
+            if (section.contains("ExtraPermission")) {
+                permission = section.getString("ExtraPermission");
+            }
 
-            return new ISItem(section.getName(), worth, fix_buy, fix_sell, itemdata, allow_sell, allow_buy, allow_sellall, allow_buyall);
+            return new ISItem(section.getName(), worth, fix_buy, fix_sell, itemdata, allow_sell, allow_buy, allow_sellall, allow_buyall, permission);
         }
         return null;
     }

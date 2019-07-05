@@ -22,7 +22,7 @@ public class ItemShops extends BossShopAddonConfigurable {
 
     @Override
     public String getRequiredBossShopVersion() {
-        return "1.9.9";
+        return "1.9.8";
     }
 
     @Override

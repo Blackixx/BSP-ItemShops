@@ -17,12 +17,17 @@ public class ISItem {
     private boolean allow_buy;
     private boolean allow_sellall;
     private boolean allow_buyall;
+    private String permission;
 
     private List<String> itemdata;
 
-
     public ISItem(String path, double worth, double fix_buy, double fix_sell, List<String> itemdata, boolean allow_sell,
                   boolean allow_buy, boolean allow_sellall, boolean allow_buyall) {
+        this(path,worth,fix_buy,fix_sell,itemdata,allow_sell,allow_buy,allow_sellall,allow_buyall,"");
+    }
+
+    public ISItem(String path, double worth, double fix_buy, double fix_sell, List<String> itemdata, boolean allow_sell,
+                  boolean allow_buy, boolean allow_sellall, boolean allow_buyall, String permission) {
         this.path = path;
         this.worth = worth;
         this.fix_buy = fix_buy;
@@ -32,6 +37,7 @@ public class ISItem {
         this.allow_buy = allow_buy;
         this.allow_sellall = allow_sellall;
         this.allow_buyall = allow_buyall;
+        this.permission = permission;
         this.itemstack = ClassManager.manager.getItemStackCreator().createItemStack(itemdata, false);
     }
 
@@ -98,6 +104,10 @@ public class ISItem {
 
     public boolean allowBuyAll() {
         return allow_buyall && allow_buy;
+    }
+
+    public String getPermission() {
+        return permission;
     }
 
     public List<ItemStack> getItemList(int amount) {

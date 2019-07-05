@@ -45,23 +45,32 @@ public class ItemInfo {
 
 
     public ItemStack getMenuItem(List<String> itemdata, ItemStack itemstack, int amount) {
+        return getMenuItem(itemdata,itemstack,amount,null);
+    }
+
+    public ItemStack getMenuItem(List<String> itemdata, ItemStack itemstack, int amount, Number price) {
         List<String> new_list = new ArrayList<String>();
         if (itemdata != null) {
             for (String entry : itemdata) {
-                new_list.add(transformEntry(entry, itemstack, amount));
+                new_list.add(transformEntry(entry, itemstack, amount, price));
             }
         }
         if (menuitem != null) {
             for (String entry : menuitem) {
-                new_list.add(transformEntry(entry, itemstack, amount));
+                new_list.add(transformEntry(entry, itemstack, amount, price));
             }
         }
         return ClassManager.manager.getItemStackCreator().createItemStack(new_list, false);
     }
 
-    @SuppressWarnings("deprecation")
     public String transformEntry(String entry, ItemStack itemstack, int amount) {
+        return transformEntry(entry,itemstack,amount,null);
+    }
+
+    @SuppressWarnings("deprecation")
+    public String transformEntry(String entry, ItemStack itemstack, int amount, Number price) {
         entry = entry.replace("%amount%", String.valueOf(amount));
+        if (price != null) entry = entry.replace("%price%", String.valueOf(price));
         if (itemstack != null) {
             entry = entry.replace("%type%", ClassManager.manager.getItemStackTranslator().readMaterial(itemstack));
             entry = entry.replace("%durability%", String.valueOf(itemstack.getDurability()));
